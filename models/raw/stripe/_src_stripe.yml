@@ -1,7 +1,8 @@
+version: 2
+
 sources:
   - name: stripe
     database: dbt_raw
     schema: stripe
     tables:
       - name: payment
-
