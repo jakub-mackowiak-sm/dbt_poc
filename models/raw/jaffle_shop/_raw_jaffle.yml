@@ -1,0 +1,30 @@
+models:
+
+  - name: raw_customers
+    columns:
+      - name: customer_id
+        data_tests:
+          - not_null
+          - unique
+
+  - name: raw_orders
+    columns:
+      - name: order_id
+        data_tests:
+          - not_null
+          - unique
+      - name: customer_id
+        data_tests:
+          - not_null
+          - relationships:
+              field: customer_id
+              to: ref('raw_customers')
+      - name: order_status
+        data_tests:
+          - accepted_values:
+              values:
+                - completed
+                - return_pending
+                - placed
+                - shipped
+                - returned
