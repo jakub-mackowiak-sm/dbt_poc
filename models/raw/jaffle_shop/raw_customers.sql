@@ -5,6 +5,7 @@ with customers as (
         first_name,
         last_name
 
-    from dbt_raw.jaffle_shop.customers
+    from {{ source('jaffle', 'customers') }}
+    --dbt_raw.jaffle_shop.customers
 )
 select * from customers
