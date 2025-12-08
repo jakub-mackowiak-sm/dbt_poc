@@ -1,6 +1,7 @@
 models:
 
   - name: raw_customers
+    description: Customers raw
     columns:
       - name: customer_id
         data_tests:
@@ -8,6 +9,7 @@ models:
           - unique
 
   - name: raw_orders
+    description: Orders raw
     columns:
       - name: order_id
         data_tests:
@@ -20,6 +22,7 @@ models:
               field: customer_id
               to: ref('raw_customers')
       - name: order_status
+        description: from a list of accepted values "{{ doc('order_status') }}" 
         data_tests:
           - accepted_values:
               values:
